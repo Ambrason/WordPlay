@@ -12,6 +12,11 @@ namespace WordPlay.Models
 
         public DbSet<UnscrambledSentence> UnscrambledSentences { get; set; }
 
+        public DbSet<QuizQuestion> QuizQuestions { get; set; }
+        public DbSet<QuizAnswer> QuizAnswers { get; set; }
+        public DbSet<QuizCategory> QuizCategories { get; set; }
+        public DbSet<QuizHighscore> QuizHighscores { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -21,5 +26,6 @@ namespace WordPlay.Models
         {
             return new ApplicationDbContext();
         }
+
     }
 }

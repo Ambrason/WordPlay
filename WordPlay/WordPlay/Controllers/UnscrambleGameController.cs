@@ -12,7 +12,7 @@ using WordPlay.Repositories;
 namespace WordPlay.Controllers
 {
     [Authorize]
-    public class UnscrambledSentencesController : Controller
+    public class UnscrambleGameController : Controller
     {
 
         private UnscrambleGameRepository rep = new UnscrambleGameRepository();
@@ -20,23 +20,35 @@ namespace WordPlay.Controllers
         [AllowAnonymous]
         public ActionResult Play()
         {
-            return View();
-        }
+            var entity = rep.GetRandomSentence();
 
+            var model = new UnscrambleGameViewmodel(entity);
+
+            return View(model);
+        }
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Result()
+        public ActionResult Play(UnscrambleGameViewmodel model)
         {
-            return View();
+            return RedirectToAction("Result", model);
+        }
+
+        [AllowAnonymous]
+        public ActionResult Result(UnscrambleGameViewmodel model)
+        {
+            var result = new UnscrambleGameResultViewModel(rep.GetSentence(model.Id),model.AnsweredSentence);
+            return View(result);
         }
 
 
-        //// GET: UnscrambledSentences
-        //public ActionResult Index()
-        //{
-        //    return View(db.UnscrambledSentences.ToList());
-        //}
+        //// GET: UnscrambleGame
+        [AllowAnonymous]
+        public ActionResult Index()
+        {
+            return RedirectToAction("Play");
+            //return View(db.UnscrambledSentences.ToList());
+        }
 
         //// GET: UnscrambledSentences/Details/5
         //public ActionResult Details(int? id)

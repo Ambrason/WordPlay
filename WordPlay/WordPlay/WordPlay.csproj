@@ -162,10 +162,19 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageGameController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\UnscrambledSentencesController.cs" />
+    <Compile Include="Controllers\QuizGameController.cs" />
+    <Compile Include="Controllers\UnscrambleGameController.cs" />
     <Compile Include="Migrations\201509230811153_Initial.cs" />
     <Compile Include="Migrations\201509230811153_Initial.Designer.cs">
       <DependentUpon>201509230811153_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509230921003_UnscrambleInitial.cs" />
+    <Compile Include="Migrations\201509230921003_UnscrambleInitial.Designer.cs">
+      <DependentUpon>201509230921003_UnscrambleInitial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509231017093_QuizInitial.cs" />
+    <Compile Include="Migrations\201509231017093_QuizInitial.Designer.cs">
+      <DependentUpon>201509231017093_QuizInitial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -177,16 +186,25 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ImageGameModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\QuizModels.cs" />
     <Compile Include="Models\UnscrambleModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\QuizGameRepository.cs" />
     <Compile Include="Repositories\UnscrambleGameRepository.cs" />
     <Compile Include="Startup.cs" />
     <None Include="Todo" />
-    <Content Include="Views\UnscrambledSentences\Create.cshtml" />
-    <Content Include="Views\UnscrambledSentences\Delete.cshtml" />
-    <Content Include="Views\UnscrambledSentences\Details.cshtml" />
-    <Content Include="Views\UnscrambledSentences\Edit.cshtml" />
-    <Content Include="Views\UnscrambledSentences\Index.cshtml" />
+    <Content Include="Views\UnscrambleGame\Create.cshtml" />
+    <Content Include="Views\UnscrambleGame\Delete.cshtml" />
+    <Content Include="Views\UnscrambleGame\Details.cshtml" />
+    <Content Include="Views\UnscrambleGame\Edit.cshtml" />
+    <Content Include="Views\UnscrambleGame\Index.cshtml" />
+    <Content Include="Views\UnscrambleGame\Play.cshtml" />
+    <Content Include="Views\UnscrambleGame\Result.cshtml" />
+    <Content Include="Views\QuizGame\Create.cshtml" />
+    <Content Include="Views\QuizGame\Delete.cshtml" />
+    <Content Include="Views\QuizGame\Details.cshtml" />
+    <Content Include="Views\QuizGame\Edit.cshtml" />
+    <Content Include="Views\QuizGame\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -259,6 +277,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201509230811153_Initial.resx">
       <DependentUpon>201509230811153_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509230921003_UnscrambleInitial.resx">
+      <DependentUpon>201509230921003_UnscrambleInitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509231017093_QuizInitial.resx">
+      <DependentUpon>201509231017093_QuizInitial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
