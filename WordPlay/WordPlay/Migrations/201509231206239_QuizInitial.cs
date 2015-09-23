@@ -30,7 +30,7 @@ namespace WordPlay.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.QuizCategories", t => t.CategoryId, cascadeDelete: true)
-                .ForeignKey("dbo.QuizAnswers", t => t.CorrectAnswerId, cascadeDelete: false)
+                .ForeignKey("dbo.QuizAnswers", t => t.CorrectAnswerId, cascadeDelete: true)
                 .Index(t => t.CorrectAnswerId)
                 .Index(t => t.CategoryId);
             

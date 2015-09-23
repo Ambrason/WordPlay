@@ -40,7 +40,7 @@ namespace WordPlay.Controllers
                 var currentQuestion = rep.GetQuizQuestion(model.CurrentQuestionId);
 
                 //If right answer
-                if (answer == currentQuestion.CorrectAnswer.Answer)
+                if (answer == currentQuestion.CorrectAnswer)
                 {
                     model.Score += 1;
                     model.PreviousQuestionCorrect = true;
@@ -49,26 +49,28 @@ namespace WordPlay.Controllers
                 {
                     model.PreviousQuestionCorrect = false;
                 }
-
+                model.AnsweredQuestions.Add(model.CurrentQuestionId);
 
                 model.PreviousQuestion = model.CurrentQuestion;
                 model.PreviousGivenAnswer = answer;
-                model.PreviousCorrectAnswer = currentQuestion.CorrectAnswer.Answer;
+                model.PreviousCorrectAnswer = currentQuestion.CorrectAnswer;
 
                 model.CurrentQuestionNr += 1;
 
-                var nextQuestion = rep.GetRandomQuestion();
+                var nextQuestion = rep.GetRandomQuestion(model.AnsweredQuestions);
 
                 model.CurrentQuestion = nextQuestion.Question;
                 model.CurrentQuestionId = nextQuestion.Id;
                 model.Answers = nextQuestion.Answers.Select(q => q.Answer).ToList();
 
-                //model.
-                
+                if (model.AnsweredQuestions == null)
+                {
+                    model.AnsweredQuestions = new List<int>();
+                }
 
+                return View(model);
             }
 
-            return View();
         }
         public ActionResult Result(QuizResultViewmodel model)
         {
@@ -79,12 +81,14 @@ namespace WordPlay.Controllers
             return View();
         }
 
-        //// GET: QuizGame
-        //public ActionResult Index()
-        //{
-        //    var quizQuestions = db.QuizQuestions.Include(q => q.Category).Include(q => q.CorrectAnswer);
-        //    return View(quizQuestions.ToList());
-        //}
+        // GET: QuizGame
+        public ActionResult Index()
+        {
+            //var quizQuestions = db.QuizQuestions.Include(q => q.Category).Include(q => q.CorrectAnswer);
+            //return View(quizQuestions.ToList());
+
+            return View();
+        }
 
         //// GET: QuizGame/Details/5
         //public ActionResult Details(int? id)

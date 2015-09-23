@@ -13,7 +13,7 @@ namespace WordPlay.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201509231017093_QuizInitial"; }
+            get { return "201509231206239_QuizInitial"; }
         }
         
         string IMigrationMetadata.Source

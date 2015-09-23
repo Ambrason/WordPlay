@@ -172,9 +172,13 @@
     <Compile Include="Migrations\201509230921003_UnscrambleInitial.Designer.cs">
       <DependentUpon>201509230921003_UnscrambleInitial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201509231017093_QuizInitial.cs" />
-    <Compile Include="Migrations\201509231017093_QuizInitial.Designer.cs">
-      <DependentUpon>201509231017093_QuizInitial.cs</DependentUpon>
+    <Compile Include="Migrations\201509231206239_QuizInitial.cs" />
+    <Compile Include="Migrations\201509231206239_QuizInitial.Designer.cs">
+      <DependentUpon>201509231206239_QuizInitial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509231212347_Quiz2.cs" />
+    <Compile Include="Migrations\201509231212347_Quiz2.Designer.cs">
+      <DependentUpon>201509231212347_Quiz2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -204,6 +208,7 @@
     <Content Include="Views\QuizGame\Details.cshtml" />
     <Content Include="Views\QuizGame\Edit.cshtml" />
     <Content Include="Views\QuizGame\Index.cshtml" />
+    <Content Include="Views\QuizGame\Play.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -280,8 +285,11 @@
     <EmbeddedResource Include="Migrations\201509230921003_UnscrambleInitial.resx">
       <DependentUpon>201509230921003_UnscrambleInitial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201509231017093_QuizInitial.resx">
-      <DependentUpon>201509231017093_QuizInitial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201509231206239_QuizInitial.resx">
+      <DependentUpon>201509231206239_QuizInitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509231212347_Quiz2.resx">
+      <DependentUpon>201509231212347_Quiz2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
