@@ -162,6 +162,7 @@
     <Compile Include="Controllers\ColorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageGameController.cs" />
+    <Compile Include="Controllers\ImageGameModelsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuizGameController.cs" />
     <Compile Include="Controllers\UnscrambleGameController.cs" />
@@ -185,11 +186,12 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ColorModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ImageGameModel.cs" />
+    <Compile Include="Models\ImageGame.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\QuizModels.cs" />
     <Compile Include="Models\UnscrambleModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ImageGameRepository.cs" />
     <Compile Include="Repositories\QuizGameRepository.cs" />
     <Compile Include="Repositories\UnscrambleGameRepository.cs" />
     <Compile Include="Startup.cs" />
@@ -211,6 +213,11 @@
     <Content Include="Views\Color\Details.cshtml" />
     <Content Include="Views\Color\Edit.cshtml" />
     <Content Include="Views\Color\Index.cshtml" />
+    <Content Include="Views\ImageGameModels\Create.cshtml" />
+    <Content Include="Views\ImageGameModels\Delete.cshtml" />
+    <Content Include="Views\ImageGameModels\Details.cshtml" />
+    <Content Include="Views\ImageGameModels\Edit.cshtml" />
+    <Content Include="Views\ImageGameModels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
