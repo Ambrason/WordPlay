@@ -50,6 +50,7 @@ namespace WordPlay.Models
             return result;
         }//EncodeText
 
+        // Tar emot en sträng och en lista . Kontrollerar om skiljetecken matchar sparade tecken (tokens)
         public bool CheckAnswer(string s, List<TokenAndPosition> l)// s= svar, l = tokens
         {
             bool result = true;
@@ -61,7 +62,7 @@ namespace WordPlay.Models
 
                 if ((s[i] == '.') || (s[i] == ',') || (s[i] == '?') || (s[i] == '-') || (s[i] == '?'))
                 {
-                    //skiljetecknet i indatasträngen jämförs med sparade
+                    //Skiljetecknet i indatasträngen jämförs med sparade skiljetecken
                     TokenAndPosition t = new TokenAndPosition();
                     t = l.First();
                     if( (t.Idx != i) || (t.Token != s[i]) )
