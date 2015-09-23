@@ -16,6 +16,7 @@ namespace WordPlay.Models
         public DbSet<QuizAnswer> QuizAnswers { get; set; }
         public DbSet<QuizCategory> QuizCategories { get; set; }
         public DbSet<QuizHighscore> QuizHighscores { get; set; }
+        public DbSet<ColorModel> ColorModel { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
