@@ -21,5 +21,6 @@ namespace WordPlay.Models
         {
             return new ApplicationDbContext();
         }
+
     }
 }

@@ -1,0 +1,70 @@
+﻿@model WordPlay.Models.UnscrambleGameResultViewModel
+
+@{
+    ViewBag.Title = "UnscrambleGame - Result";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>@ViewBag.Title</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CorrectSentence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorrectSentence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnsweredSentence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnsweredSentence)
+        </dd>
+
+    </dl>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CorrectlyAnsweredWords)
+        </th>
+    </tr>
+
+    @foreach (var item in Model.CorrectlyAnsweredWords)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WronglyAnsweredWords)
+        </th>
+    </tr>
+
+    @foreach (var item in Model.WronglyAnsweredWords)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Play again", "Play")
+</p>
