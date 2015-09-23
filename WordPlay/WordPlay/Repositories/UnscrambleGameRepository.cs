@@ -10,9 +10,19 @@ namespace WordPlay.Repositories
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public ICollection<UnscrambledSentence> GetItems()
+        //public ICollection<UnscrambledSentence> GetItems()
+        //{
+        //    return db.UnscrambledSentences.ToList();
+        //}
+
+        public UnscrambledSentence GetRandomSentence()
         {
-            
+            var list = db.UnscrambledSentences.ToList();
+
+            Random random = new Random();
+            int r = random.Next(list.Count);
+
+            return list[r];
         }
     }
 }

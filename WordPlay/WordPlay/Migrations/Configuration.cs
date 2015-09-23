@@ -4,6 +4,7 @@ namespace WordPlay.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using WordPlay.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<WordPlay.Models.ApplicationDbContext>
     {
@@ -26,6 +27,16 @@ namespace WordPlay.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            //UnscrambleGame
+            context.UnscrambledSentences.AddOrUpdate(
+                q => q.Id,
+                new UnscrambledSentence() { Id = 1, Sentence = "My pen is in a goat" },
+                new UnscrambledSentence() { Id = 2, Sentence = "There are pink elephants in my garden" }
+
+                );
+
+
         }
     }
 }

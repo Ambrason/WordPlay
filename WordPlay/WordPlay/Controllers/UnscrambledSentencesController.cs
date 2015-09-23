@@ -20,15 +20,24 @@ namespace WordPlay.Controllers
         [AllowAnonymous]
         public ActionResult Play()
         {
-            return View();
-        }
+            var entity = rep.GetRandomSentence();
 
+            var model = new UnscrambleGameViewmodel(entity);
+
+            return View(model);
+        }
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Result()
+        public ActionResult Play(UnscrambleGameViewmodel model)
         {
-            return View();
+            return RedirectToAction("Result", model);
+        }
+
+        [AllowAnonymous]
+        public ActionResult Result(UnscrambleGameViewmodel model)
+        {
+            return View(model);
         }
 
 

@@ -23,6 +23,17 @@ namespace WordPlay.Models
         public string ScrambledSentence { get; set; }
 
         public string AnsweredSentence { get; set; }
+
+        public UnscrambleGameViewmodel() { }
+
+        public UnscrambleGameViewmodel(UnscrambledSentence that) {
+            this.Id = that.Id;
+            this.AnsweredSentence = null;
+
+            var scramble = that.Sentence.Split(' ');
+            Random random = new Random();
+            this.ScrambledSentence = string.Join(" ",scramble.OrderBy((item) => random.Next()).ToList());
+        }
     }
 
     public class UnscrambleGameResultViewModel
