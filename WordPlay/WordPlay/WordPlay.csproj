@@ -159,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ColorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageGameController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -186,6 +187,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ColorModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ImageGameModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -208,6 +210,11 @@
     <Content Include="Views\QuizGame\Details.cshtml" />
     <Content Include="Views\QuizGame\Edit.cshtml" />
     <Content Include="Views\QuizGame\Index.cshtml" />
+    <Content Include="Views\Color\Create.cshtml" />
+    <Content Include="Views\Color\Delete.cshtml" />
+    <Content Include="Views\Color\Details.cshtml" />
+    <Content Include="Views\Color\Edit.cshtml" />
+    <Content Include="Views\Color\Index.cshtml" />
     <Content Include="Views\QuizGame\Play.cshtml" />
   </ItemGroup>
   <ItemGroup>
