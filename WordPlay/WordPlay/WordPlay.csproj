@@ -162,7 +162,6 @@
     <Compile Include="Controllers\ColorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageGameController.cs" />
-    <Compile Include="Controllers\ImageGameModelsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuizGameController.cs" />
     <Compile Include="Controllers\UnscrambleGameController.cs" />
@@ -174,9 +173,13 @@
     <Compile Include="Migrations\201509230921003_UnscrambleInitial.Designer.cs">
       <DependentUpon>201509230921003_UnscrambleInitial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201509231017093_QuizInitial.cs" />
-    <Compile Include="Migrations\201509231017093_QuizInitial.Designer.cs">
-      <DependentUpon>201509231017093_QuizInitial.cs</DependentUpon>
+    <Compile Include="Migrations\201509231206239_QuizInitial.cs" />
+    <Compile Include="Migrations\201509231206239_QuizInitial.Designer.cs">
+      <DependentUpon>201509231206239_QuizInitial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509231212347_Quiz2.cs" />
+    <Compile Include="Migrations\201509231212347_Quiz2.Designer.cs">
+      <DependentUpon>201509231212347_Quiz2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -186,12 +189,11 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ColorModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ImageGame.cs" />
+    <Compile Include="Models\ImageGameModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\QuizModels.cs" />
     <Compile Include="Models\UnscrambleModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\ImageGameRepository.cs" />
     <Compile Include="Repositories\QuizGameRepository.cs" />
     <Compile Include="Repositories\UnscrambleGameRepository.cs" />
     <Compile Include="Startup.cs" />
@@ -213,11 +215,7 @@
     <Content Include="Views\Color\Details.cshtml" />
     <Content Include="Views\Color\Edit.cshtml" />
     <Content Include="Views\Color\Index.cshtml" />
-    <Content Include="Views\ImageGameModels\Create.cshtml" />
-    <Content Include="Views\ImageGameModels\Delete.cshtml" />
-    <Content Include="Views\ImageGameModels\Details.cshtml" />
-    <Content Include="Views\ImageGameModels\Edit.cshtml" />
-    <Content Include="Views\ImageGameModels\Index.cshtml" />
+    <Content Include="Views\QuizGame\Play.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -294,8 +292,11 @@
     <EmbeddedResource Include="Migrations\201509230921003_UnscrambleInitial.resx">
       <DependentUpon>201509230921003_UnscrambleInitial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201509231017093_QuizInitial.resx">
-      <DependentUpon>201509231017093_QuizInitial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201509231206239_QuizInitial.resx">
+      <DependentUpon>201509231206239_QuizInitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509231212347_Quiz2.resx">
+      <DependentUpon>201509231212347_Quiz2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

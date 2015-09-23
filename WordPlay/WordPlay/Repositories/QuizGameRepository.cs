@@ -24,5 +24,15 @@ namespace WordPlay.Repositories
 
             return list[r];
         }
+
+        public QuizQuestion GetRandomQuestion(ICollection<int> alreadyAnswered)
+        {
+            var list = db.QuizQuestions.Where(q => !alreadyAnswered.Contains(q.Id)).ToList();
+
+            Random random = new Random();
+            int r = random.Next(list.Count);
+
+            return list[r];
+        }
     }
 }

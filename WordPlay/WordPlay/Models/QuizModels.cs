@@ -13,9 +13,7 @@ namespace WordPlay.Models
         public int Id {get;set;}
         public string Question {get;set;}
         
-        [ForeignKey("CorrectAnswer")]
-        public int CorrectAnswerId{get;set;}
-        public virtual QuizAnswer CorrectAnswer {get;set;}
+        public string CorrectAnswer {get;set;}
 
         [ForeignKey("Category")]
         public int CategoryId{get;set;}
@@ -75,6 +73,8 @@ namespace WordPlay.Models
         public string PreviousQuestion { get; set; }
         public string PreviousGivenAnswer { get; set; }
         public string PreviousCorrectAnswer { get; set; }
+
+        public List<int> AnsweredQuestions { get; set; }
     }
 
     public class QuizResultViewmodel
