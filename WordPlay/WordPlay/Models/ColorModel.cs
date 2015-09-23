@@ -8,6 +8,8 @@ namespace WordPlay.Models
 {
     public class ColorModel
     {
+        [Key]
+        public int ID { get; set; }
         public string Color { get; set; }
         public int Counter { get; set; }
     }
