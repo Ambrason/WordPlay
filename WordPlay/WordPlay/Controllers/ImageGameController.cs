@@ -11,7 +11,7 @@ namespace WordPlay.Controllers
     {
 
         //call on ImageGameRepository
-        private ImageGameRepository repo = new ImageGameRepository();
+        //private ImageGameRepository repo = new ImageGameRepository();
 
 
         // GET: ImageGame

@@ -57,4 +57,31 @@ namespace WordPlay.Models
         public int? CategoryId { get; set; }
         public virtual QuizCategory Category { get; set; }
     }
+
+    public class QuizPlayViewmodel
+    {
+        public int? CategoryId { get; set; }
+        public string CategoryName { get; set; }
+
+        public int CurrentQuestionNr { get; set; }
+        public int CurrentQuestionId { get; set; }
+        public string CurrentQuestion { get; set; }
+
+        public List<string> Answers { get; set; }
+
+        public int Score { get; set; }
+
+        public bool? PreviousQuestionCorrect { get; set; }
+        public string PreviousQuestion { get; set; }
+        public string PreviousGivenAnswer { get; set; }
+        public string PreviousCorrectAnswer { get; set; }
+    }
+
+    public class QuizResultViewmodel
+    {
+        public int? CategoryId { get; set; }
+        public string CategoryName { get; set; }
+
+        public int Score { get; set; }
+    }
 }
