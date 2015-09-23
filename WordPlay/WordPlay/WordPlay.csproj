@@ -160,6 +160,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageGameController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Migrations\201509230811153_Initial.cs" />
     <Compile Include="Migrations\201509230811153_Initial.Designer.cs">
@@ -172,6 +173,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ImageGameModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\UnscrambleModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -238,6 +240,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Repositories\" />
+    <Folder Include="Views\ImageGame\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
