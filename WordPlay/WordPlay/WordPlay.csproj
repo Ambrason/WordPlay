@@ -182,6 +182,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\UnscrambleModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ImageGameRepositorys.cs" />
     <Compile Include="Repositories\UnscrambleGameRepository.cs" />
     <Compile Include="Startup.cs" />
     <None Include="Todo" />
@@ -252,6 +253,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ImageGameRepository\" />
     <Folder Include="Views\ImageGame\" />
   </ItemGroup>
   <ItemGroup>
