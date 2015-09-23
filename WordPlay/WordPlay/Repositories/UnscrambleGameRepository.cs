@@ -24,5 +24,10 @@ namespace WordPlay.Repositories
 
             return list[r];
         }
+
+        public UnscrambledSentence GetSentence(int id)
+        {
+            return db.UnscrambledSentences.Find(id);
+        }
     }
 }

@@ -162,7 +162,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageGameController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\UnscrambledSentencesController.cs" />
+    <Compile Include="Controllers\UnscrambleGameController.cs" />
     <Compile Include="Migrations\201509230811153_Initial.cs" />
     <Compile Include="Migrations\201509230811153_Initial.Designer.cs">
       <DependentUpon>201509230811153_Initial.cs</DependentUpon>
@@ -185,12 +185,13 @@
     <Compile Include="Repositories\UnscrambleGameRepository.cs" />
     <Compile Include="Startup.cs" />
     <None Include="Todo" />
-    <Content Include="Views\UnscrambledSentences\Create.cshtml" />
-    <Content Include="Views\UnscrambledSentences\Delete.cshtml" />
-    <Content Include="Views\UnscrambledSentences\Details.cshtml" />
-    <Content Include="Views\UnscrambledSentences\Edit.cshtml" />
-    <Content Include="Views\UnscrambledSentences\Index.cshtml" />
-    <Content Include="Views\UnscrambledSentences\Play.cshtml" />
+    <Content Include="Views\UnscrambleGame\Create.cshtml" />
+    <Content Include="Views\UnscrambleGame\Delete.cshtml" />
+    <Content Include="Views\UnscrambleGame\Details.cshtml" />
+    <Content Include="Views\UnscrambleGame\Edit.cshtml" />
+    <Content Include="Views\UnscrambleGame\Index.cshtml" />
+    <Content Include="Views\UnscrambleGame\Play.cshtml" />
+    <Content Include="Views\UnscrambleGame\Result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
