@@ -10,7 +10,7 @@ namespace WordPlay.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
 
-        //public DbSet<Item> Items { get; set; }
+        public DbSet<UnscrambledSentence> UnscrambledSentences { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
