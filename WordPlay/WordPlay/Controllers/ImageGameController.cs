@@ -9,7 +9,10 @@ namespace WordPlay.Controllers
 {
     public class ImageGameController : Controller
     {
+
         //call on ImageGameRepository
+        //private ImageGameRepository repo = new ImageGameRepository();
+
 
         // GET: ImageGame
         public ActionResult Index()
