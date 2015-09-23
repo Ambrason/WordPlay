@@ -162,6 +162,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageGameController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UnscrambledSentencesController.cs" />
     <Compile Include="Migrations\201509230811153_Initial.cs" />
     <Compile Include="Migrations\201509230811153_Initial.Designer.cs">
       <DependentUpon>201509230811153_Initial.cs</DependentUpon>
@@ -177,8 +178,14 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\UnscrambleModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\UnscrambleGameRepository.cs" />
     <Compile Include="Startup.cs" />
     <None Include="Todo" />
+    <Content Include="Views\UnscrambledSentences\Create.cshtml" />
+    <Content Include="Views\UnscrambledSentences\Delete.cshtml" />
+    <Content Include="Views\UnscrambledSentences\Details.cshtml" />
+    <Content Include="Views\UnscrambledSentences\Edit.cshtml" />
+    <Content Include="Views\UnscrambledSentences\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -239,7 +246,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Repositories\" />
     <Folder Include="Views\ImageGame\" />
   </ItemGroup>
   <ItemGroup>
