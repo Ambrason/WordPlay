@@ -3,31 +3,10 @@ namespace WordPlay.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class kkk : DbMigration
+    public partial class QuizInitial : DbMigration
     {
         public override void Up()
         {
-            CreateTable(
-                "dbo.ColorModels",
-                c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                        Color = c.String(),
-                        Counter = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.ID);
-            
-            CreateTable(
-                "dbo.ImageGames",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Image = c.String(),
-                        Word = c.String(),
-                        Point = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
             CreateTable(
                 "dbo.QuizAnswers",
                 c => new
@@ -46,11 +25,13 @@ namespace WordPlay.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Question = c.String(),
-                        CorrectAnswer = c.String(),
+                        CorrectAnswerId = c.Int(nullable: false),
                         CategoryId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.QuizCategories", t => t.CategoryId, cascadeDelete: true)
+                .ForeignKey("dbo.QuizAnswers", t => t.CorrectAnswerId, cascadeDelete: true)
+                .Index(t => t.CorrectAnswerId)
                 .Index(t => t.CategoryId);
             
             CreateTable(
@@ -81,17 +62,17 @@ namespace WordPlay.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.QuizHighscores", "CategoryId", "dbo.QuizCategories");
+            DropForeignKey("dbo.QuizQuestions", "CorrectAnswerId", "dbo.QuizAnswers");
             DropForeignKey("dbo.QuizQuestions", "CategoryId", "dbo.QuizCategories");
             DropForeignKey("dbo.QuizAnswers", "QuestionId", "dbo.QuizQuestions");
             DropIndex("dbo.QuizHighscores", new[] { "CategoryId" });
             DropIndex("dbo.QuizQuestions", new[] { "CategoryId" });
+            DropIndex("dbo.QuizQuestions", new[] { "CorrectAnswerId" });
             DropIndex("dbo.QuizAnswers", new[] { "QuestionId" });
             DropTable("dbo.QuizHighscores");
             DropTable("dbo.QuizCategories");
             DropTable("dbo.QuizQuestions");
             DropTable("dbo.QuizAnswers");
-            DropTable("dbo.ImageGames");
-            DropTable("dbo.ColorModels");
         }
     }
 }
