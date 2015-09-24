@@ -7,13 +7,13 @@ namespace WordPlay.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class UnscrambleInitial : IMigrationMetadata
+    public sealed partial class test : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UnscrambleInitial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(test));
         
         string IMigrationMetadata.Id
         {
-            get { return "201509230921003_UnscrambleInitial"; }
+            get { return "201509241149078_test"; }
         }
         
         string IMigrationMetadata.Source
