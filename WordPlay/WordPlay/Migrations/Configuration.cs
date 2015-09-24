@@ -108,6 +108,29 @@ namespace WordPlay.Migrations
                 q => q.Id,
                 answers.ToArray()
                 );
+            context.QuizHighscores.AddOrUpdate(
+                q => q.Id,
+                new QuizHighscore() { Id = 1, CategoryId = 1, Name = "AAA", DateTime = new DateTime(2015, 09, 24), Score = 5 },
+                new QuizHighscore() { Id = 2, CategoryId = 1, Name = "BBB", DateTime = new DateTime(2015, 09, 24, 10,0,0), Score = 5 },
+                new QuizHighscore() { Id = 3, CategoryId = 1, Name = "CCC", DateTime = new DateTime(2015, 09, 24), Score = 4 },
+                new QuizHighscore() { Id = 4, CategoryId = 1, Name = "DDD", DateTime = new DateTime(2015, 09, 24, 10, 0, 0), Score = 4 },
+                new QuizHighscore() { Id = 5, CategoryId = 1, Name = "EEE", DateTime = new DateTime(2015, 09, 24, 9, 0, 0), Score = 4 },
+                new QuizHighscore() { Id = 6, CategoryId = 1, Name = "FFF", DateTime = new DateTime(2015, 09, 24, 11, 0, 0), Score = 4 },
+                new QuizHighscore() { Id = 7, CategoryId = 1, Name = "GGG", DateTime = new DateTime(2015, 09, 24, 10,0,0), Score = 3 },
+                new QuizHighscore() { Id = 8, CategoryId = 1, Name = "HHH", DateTime = new DateTime(2015, 09, 24), Score = 3 },
+                new QuizHighscore() { Id = 9, CategoryId = 1, Name = "III", DateTime = new DateTime(2015, 09, 24), Score = 3 },
+                new QuizHighscore() { Id = 10, CategoryId = 1, Name = "JJJ", DateTime = new DateTime(2015, 09, 24), Score = 3 },
+                new QuizHighscore() { Id = 11, CategoryId = 1, Name = "KKK", DateTime = new DateTime(2015, 09, 24), Score = 2 },
+                new QuizHighscore() { Id = 12, CategoryId = 1, Name = "LLL", DateTime = new DateTime(2015, 09, 24), Score = 2 },
+                new QuizHighscore() { Id = 13, CategoryId = 1, Name = "MMM", DateTime = new DateTime(2015, 09, 24), Score = 2 },
+                new QuizHighscore() { Id = 14, CategoryId = 1, Name = "NNN", DateTime = new DateTime(2015, 09, 24), Score = 1 },
+                new QuizHighscore() { Id = 15, CategoryId = 1, Name = "OOO", DateTime = new DateTime(2015, 09, 24), Score = 1 },
+                new QuizHighscore() { Id = 16, CategoryId = 1, Name = "PPP", DateTime = new DateTime(2015, 09, 24), Score = 1 },
+                new QuizHighscore() { Id = 17, CategoryId = 1, Name = "QQQ", DateTime = new DateTime(2015, 09, 24), Score = 1 },
+                new QuizHighscore() { Id = 18, CategoryId = 1, Name = "RRR", DateTime = new DateTime(2015, 09, 24), Score = 0 },
+                new QuizHighscore() { Id = 19, CategoryId = 1, Name = "SSS", DateTime = new DateTime(2015, 09, 24), Score = 0 },
+                new QuizHighscore() { Id = 20, CategoryId = 1, Name = "TTT", DateTime = new DateTime(2015, 09, 24), Score = 0 }
+                );
 
         }
     }
