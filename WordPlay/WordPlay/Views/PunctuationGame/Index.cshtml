@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WordPlay.Models.PgTask>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PgTaskString)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PgTaskOut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PgTaskScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PbTaskAnswer)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PgTaskString)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PgTaskOut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PgTaskScore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PbTaskAnswer)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.k }) |
+            @Html.ActionLink("Details", "Details", new { id=item.k }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.k })
+        </td>
+    </tr>
+}
+
+</table>

@@ -7,13 +7,13 @@ namespace WordPlay.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class QuizInitial : IMigrationMetadata
+    public sealed partial class Databaseintegrationimplemented : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(QuizInitial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Databaseintegrationimplemented));
         
         string IMigrationMetadata.Id
         {
-            get { return "201509231206239_QuizInitial"; }
+            get { return "201509240838384_Database integration implemented"; }
         }
         
         string IMigrationMetadata.Source

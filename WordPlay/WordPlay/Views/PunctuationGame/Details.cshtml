@@ -1,0 +1,50 @@
+﻿@model WordPlay.Models.PgTask
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PgTask</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PgTaskString)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PgTaskString)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PgTaskOut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PgTaskOut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PgTaskScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PgTaskScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PbTaskAnswer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PbTaskAnswer)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.k }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

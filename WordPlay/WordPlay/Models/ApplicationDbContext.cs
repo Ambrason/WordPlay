@@ -18,7 +18,7 @@ namespace WordPlay.Models
         public DbSet<QuizHighscore> QuizHighscores { get; set; }
         public DbSet<ColorModel> ColorModel { get; set; }
         public DbSet<ImageGame> ImageGameModels { get; set; }
-
+        public DbSet<PgTask> PgTasks { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -29,6 +29,8 @@ namespace WordPlay.Models
         {
             return new ApplicationDbContext();
         }
+
+        
 
     }
 }

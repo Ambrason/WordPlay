@@ -9,23 +9,23 @@ namespace WordPlay.Models
     public class PgTask
     {
         // Skiljetecken och tecknets index i indatasträngen
-        public class TokenAndPosition
+        private class TokenAndPosition
         {
             public int Idx { get; set; }
             public char Token { get; set; }
         }// end inner class
 
-        private List<TokenAndPosition> tokens;
+        private List<TokenAndPosition> tokens = new List<TokenAndPosition>();
 
         //public List<string> facit = new List<string>();
         //public List<int> errors = new List<int>();
 
         [Key]
-        public int k;
+        public int k { get; set; }
         public string PgTaskString { get; set; } // Text
         public string PgTaskOut { get; set; } // Utdata
         public int PgTaskScore { get; set; } //Poäng
-        public string PbTaskAnswer { get; set; }
+        public string PgTaskAnswer { get; set; }
 
         // Tar emot en sträng. Ersätter skiljetecken med * och returnerar den strängen.
         public string EncodeText(string s)
@@ -53,7 +53,7 @@ namespace WordPlay.Models
         }//EncodeText
 
         // Tar emot en sträng och en lista . Kontrollerar om skiljetecken matchar sparade tecken (tokens)
-        public bool CheckAnswer(string s, List<TokenAndPosition> l)// s= svar, l = tokens
+        public bool CheckAnswer(string s)// s= svar
         {
             bool result = true;
 
@@ -64,16 +64,16 @@ namespace WordPlay.Models
                 {
                     //Skiljetecknet i indatasträngen jämförs med sparade skiljetecken
                     TokenAndPosition t = new TokenAndPosition();
-                    t = l.First();
+                    t = tokens.First();
                     if( (t.Idx != i) || (t.Token != s[i]) )
                     {
                         result = false;
-                        l.RemoveAt(0);
+                        tokens.RemoveAt(0);
                         
                     }
                     else
                     {
-                        l.RemoveAt(0);
+                        tokens.RemoveAt(0);
                         this.PgTaskScore++; // Lägger till poäng
                     }
                 }//if
