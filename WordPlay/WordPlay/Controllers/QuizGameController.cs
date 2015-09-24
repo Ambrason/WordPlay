@@ -108,7 +108,8 @@ namespace WordPlay.Controllers
         public ActionResult Highscore(int? categoryId)
         {
             var model = rep.GetHighscores().Where(q => categoryId == null || q.CategoryId == categoryId);
-            ViewBag.Category = "Category";
+
+            ViewBag.Category = model.FirstOrDefault() != null ? model.First().Category == null ? "All Categories" : model.First().Category.Category : "No highscores found!";
             return View(model);
         }
 
