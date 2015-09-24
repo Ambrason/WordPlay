@@ -92,7 +92,7 @@ namespace WordPlay.Controllers
 
         public ActionResult Result(QuizResultViewmodel model)
         {
-            return View();
+            return View(model);
         }
 
         [HttpPost]
@@ -109,7 +109,7 @@ namespace WordPlay.Controllers
         {
             var model = rep.GetHighscores().Where(q => categoryId == null || q.CategoryId == categoryId);
             ViewBag.Category = "Category";
-            return View();
+            return View(model);
         }
 
         // GET: QuizGame
