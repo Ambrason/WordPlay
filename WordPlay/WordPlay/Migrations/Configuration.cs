@@ -29,8 +29,6 @@ namespace WordPlay.Migrations
             //    );
             //
 
-            //ImageGame
-            context.im
 
             //UnscrambleGame
             context.UnscrambledSentences.AddOrUpdate(
