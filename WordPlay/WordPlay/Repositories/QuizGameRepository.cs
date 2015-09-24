@@ -15,9 +15,26 @@ namespace WordPlay.Repositories
             return db.QuizQuestions.Find(id);
         }
 
-        public QuizQuestion GetRandomQuestion()
+        //public QuizQuestion GetRandomQuestion()
+        //{
+        //    var list = db.QuizQuestions.ToList();
+
+        //    Random random = new Random();
+        //    int r = random.Next(list.Count);
+
+        //    return list[r];
+        //}
+
+        public QuizQuestion GetRandomQuestion(ICollection<int> alreadyAnswered, int? categoryId)
         {
-            var list = db.QuizQuestions.ToList();
+            List<QuizQuestion> list;
+            if (alreadyAnswered == null)
+            {
+                list = db.QuizQuestions.ToList();
+            }
+            else{
+                list = db.QuizQuestions.Where(q => !alreadyAnswered.Contains(q.Id)).Where(q => categoryId == null || categoryId == 0 || q.CategoryId == categoryId).ToList();
+            }
 
             Random random = new Random();
             int r = random.Next(list.Count);
@@ -25,14 +42,24 @@ namespace WordPlay.Repositories
             return list[r];
         }
 
-        public QuizQuestion GetRandomQuestion(ICollection<int> alreadyAnswered)
+        public QuizCategory GetQuizCategory(int? id)
         {
-            var list = db.QuizQuestions.Where(q => !alreadyAnswered.Contains(q.Id)).ToList();
+            if (id == null)
+            {
+                return null;
+            }
+            return db.QuizCategories.Find(id);
+        }
 
-            Random random = new Random();
-            int r = random.Next(list.Count);
+        public void CreateHighscore(QuizHighscore item)
+        {
+            db.QuizHighscores.Add(item);
+            db.SaveChanges();
+        }
 
-            return list[r];
+        public IEnumerable<QuizHighscore> GetHighscores()
+        {
+            return db.QuizHighscores;
         }
     }
 }

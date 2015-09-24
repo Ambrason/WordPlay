@@ -48,7 +48,7 @@ namespace WordPlay.Models
         [Key]
         public int Id { get; set; }
         public int Score { get; set; }
-        public int Name { get; set; }
+        public string Name { get; set; }
         public DateTime DateTime { get; set; }
 
         [ForeignKey("Category")]
@@ -75,6 +75,18 @@ namespace WordPlay.Models
         public string PreviousCorrectAnswer { get; set; }
 
         public List<int> AnsweredQuestions { get; set; }
+
+        public QuizPlayViewmodel()
+        {
+            Answers = new List<string>();
+            AnsweredQuestions = new List<int>();
+        }
+
+        public QuizPlayViewmodel(QuizCategory category) : this()
+        {
+            this.CategoryId = category == null ? null : category.Id as int?;
+            this.CategoryName = category == null ? null : category.Category;
+        }
     }
 
     public class QuizResultViewmodel
