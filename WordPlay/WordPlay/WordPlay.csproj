@@ -166,9 +166,9 @@
     <Compile Include="Controllers\PunctuationGameController.cs" />
     <Compile Include="Controllers\QuizGameController.cs" />
     <Compile Include="Controllers\UnscrambleGameController.cs" />
-    <Compile Include="Migrations\201509241149078_test.cs" />
-    <Compile Include="Migrations\201509241149078_test.Designer.cs">
-      <DependentUpon>201509241149078_test.cs</DependentUpon>
+    <Compile Include="Migrations\201509241214071_test.cs" />
+    <Compile Include="Migrations\201509241214071_test.Designer.cs">
+      <DependentUpon>201509241214071_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -283,8 +283,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201509241149078_test.resx">
-      <DependentUpon>201509241149078_test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201509241214071_test.resx">
+      <DependentUpon>201509241214071_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
