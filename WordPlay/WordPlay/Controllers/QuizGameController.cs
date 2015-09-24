@@ -15,6 +15,15 @@ namespace WordPlay.Controllers
     {
         private QuizGameRepository rep = new QuizGameRepository();
 
+        public ActionResult Play(int? categoryId)
+        {
+            var model = new QuizPlayViewmodel(rep.GetQuizCategory(categoryId));
+
+            return View(PlayHelper(model,null));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Play(QuizPlayViewmodel model, string answer)
         {
             int nrOfQuestions;
@@ -30,12 +39,20 @@ namespace WordPlay.Controllers
                 nrOfQuestions = 5;
             }
 
-
             if (model.CurrentQuestionNr >= nrOfQuestions)
             {
                 return RedirectToAction("Result", new QuizResultViewmodel() { CategoryId = model.CategoryId, CategoryName = model.CategoryName, Score = model.Score });
             }
             else
+            {
+                return View(PlayHelper(model,answer));
+            }
+        }
+
+        public QuizPlayViewmodel PlayHelper(QuizPlayViewmodel model, string answer)
+        {
+            //If not first question
+            if (model.CurrentQuestionNr != 0 && model.CurrentQuestionId != 0)
             {
                 var currentQuestion = rep.GetQuizQuestion(model.CurrentQuestionId);
 
@@ -45,39 +62,53 @@ namespace WordPlay.Controllers
                     model.Score += 1;
                     model.PreviousQuestionCorrect = true;
                 }
-                else 
+                else
                 {
                     model.PreviousQuestionCorrect = false;
                 }
-                model.AnsweredQuestions.Add(model.CurrentQuestionId);
 
                 model.PreviousQuestion = model.CurrentQuestion;
                 model.PreviousGivenAnswer = answer;
                 model.PreviousCorrectAnswer = currentQuestion.CorrectAnswer;
-
-                model.CurrentQuestionNr += 1;
-
-                var nextQuestion = rep.GetRandomQuestion(model.AnsweredQuestions);
-
-                model.CurrentQuestion = nextQuestion.Question;
-                model.CurrentQuestionId = nextQuestion.Id;
-                model.Answers = nextQuestion.Answers.Select(q => q.Answer).ToList();
 
                 if (model.AnsweredQuestions == null)
                 {
                     model.AnsweredQuestions = new List<int>();
                 }
 
-                return View(model);
+                model.AnsweredQuestions.Add(model.CurrentQuestionId);
             }
 
+            model.CurrentQuestionNr += 1;
+
+            var nextQuestion = rep.GetRandomQuestion(model.AnsweredQuestions,model.CategoryId);
+
+            model.CurrentQuestion = nextQuestion.Question;
+            model.CurrentQuestionId = nextQuestion.Id;
+            model.Answers = nextQuestion.Answers.Select(q => q.Answer).ToList();
+
+            return model;
         }
+
         public ActionResult Result(QuizResultViewmodel model)
         {
             return View();
         }
-        public ActionResult Highscore()
+
+        [HttpPost]
+        public ActionResult Result(QuizResultViewmodel model, string nickname)
         {
+            var highscore = new QuizHighscore() { CategoryId = model.CategoryId, DateTime = DateTime.Now, Name = nickname, Score = model.Score };
+            rep.CreateHighscore(highscore);
+
+            return RedirectToAction("Highscore", new { categoryId = model.CategoryId });
+            //return View();
+        }
+
+        public ActionResult Highscore(int? categoryId)
+        {
+            var model = rep.GetHighscores().Where(q => categoryId == null || q.CategoryId == categoryId);
+            ViewBag.Category = "Category";
             return View();
         }
 

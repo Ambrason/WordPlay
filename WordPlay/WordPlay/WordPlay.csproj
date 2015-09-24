@@ -181,6 +181,10 @@
     <Compile Include="Migrations\201509231212347_Quiz2.Designer.cs">
       <DependentUpon>201509231212347_Quiz2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201509240649232_Resolve.cs" />
+    <Compile Include="Migrations\201509240649232_Resolve.Designer.cs">
+      <DependentUpon>201509240649232_Resolve.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -217,6 +221,8 @@
     <Content Include="Views\Color\Edit.cshtml" />
     <Content Include="Views\Color\Index.cshtml" />
     <Content Include="Views\QuizGame\Play.cshtml" />
+    <Content Include="Views\QuizGame\Result.cshtml" />
+    <Content Include="Views\QuizGame\Highscore.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -297,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201509231212347_Quiz2.resx">
       <DependentUpon>201509231212347_Quiz2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509240649232_Resolve.resx">
+      <DependentUpon>201509240649232_Resolve.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
