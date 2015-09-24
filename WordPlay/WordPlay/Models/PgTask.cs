@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -16,10 +17,11 @@ namespace WordPlay.Models
 
         private List<TokenAndPosition> tokens;
 
-        public List<string> facit = new List<string>();
-        public List<int> errors = new List<int>();
-        //public enum punctuation {dot,comma,qmark,hyphen,exclamation};
-        //'.',',','?','-','!'
+        //public List<string> facit = new List<string>();
+        //public List<int> errors = new List<int>();
+
+        [Key]
+        public int k;
         public string PgTaskString { get; set; } // Text
         public string PgTaskOut { get; set; } // Utdata
         public int PgTaskScore { get; set; } //Poäng
@@ -34,7 +36,7 @@ namespace WordPlay.Models
             for (int i = 0; i < s.Length; i++)
             {
 
-                if ((s[i] == '.') || (s[i] == ',') || (s[i] == '?') || (s[i] == '-') || (s[i] == '?'))
+                if ((s[i] == '.') || (s[i] == ',') || (s[i] == '?') || (s[i] == '-') || (s[i] == '!'))
                 {
                     //skiljetecknet sparas undan
                     TokenAndPosition t = new TokenAndPosition();
@@ -54,13 +56,11 @@ namespace WordPlay.Models
         public bool CheckAnswer(string s, List<TokenAndPosition> l)// s= svar, l = tokens
         {
             bool result = true;
-            string str = "";
-            int idx = 0;
 
             for (int i = 0; i < s.Length; i++)
             {
 
-                if ((s[i] == '.') || (s[i] == ',') || (s[i] == '?') || (s[i] == '-') || (s[i] == '?'))
+                if ((s[i] == '.') || (s[i] == ',') || (s[i] == '?') || (s[i] == '-') || (s[i] == '!'))
                 {
                     //Skiljetecknet i indatasträngen jämförs med sparade skiljetecken
                     TokenAndPosition t = new TokenAndPosition();
@@ -69,10 +69,12 @@ namespace WordPlay.Models
                     {
                         result = false;
                         l.RemoveAt(0);
+                        
                     }
                     else
                     {
                         l.RemoveAt(0);
+                        this.PgTaskScore++; // Lägger till poäng
                     }
                 }//if
 
@@ -80,12 +82,15 @@ namespace WordPlay.Models
 
             return result;
         }//CheckAnswer
+
     }//PgTask
+
 }// end namespace
 
 /** (Punktuation Game)
 * Möjlighet att presentera en text på skärmen där skiljetecken saknas men markeras med en
 * asterisk (*) på skärmen, där användaren sen skall skriva av texten, med skiljetecken istället
 * för varje *. För varje rätt skiljetecken får användaren en poäng, om något är fel visas rätt svar
-* upp
+* upp.
+* (. , ? - !)
 */
