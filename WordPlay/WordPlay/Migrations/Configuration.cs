@@ -29,17 +29,6 @@ namespace WordPlay.Migrations
             //    );
             //
 
-            //PunctuationGame
-            context.PgTasks.AddOrUpdate(
-               i => i.k,
-                   new PgTask() { k = 1, PgTaskString = "airplane-rotor" },
-                   new PgTask() { k = 2, PgTaskString = "caren?gine" },
-                   new PgTask() { k = 3, PgTaskString = ".boat" },
-                   new PgTask() { k = 4, PgTaskString = "bicycle" },
-                   new PgTask() { k = 5, PgTaskString = "bear" }
-
-               );
-
             //ImageGame
             context.ImageGameModels.AddOrUpdate(
                 i => i.Id,

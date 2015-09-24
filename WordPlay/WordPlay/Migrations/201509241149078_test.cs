@@ -3,7 +3,7 @@ namespace WordPlay.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Databaseintegrationimplemented : DbMigration
+    public partial class test : DbMigration
     {
         public override void Up()
         {
@@ -15,7 +15,7 @@ namespace WordPlay.Migrations
                         PgTaskString = c.String(),
                         PgTaskOut = c.String(),
                         PgTaskScore = c.Int(nullable: false),
-                        PbTaskAnswer = c.String(),
+                        PgTaskAnswer = c.String(),
                     })
                 .PrimaryKey(t => t.k);
             
