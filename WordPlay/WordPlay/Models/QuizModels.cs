@@ -84,8 +84,8 @@ namespace WordPlay.Models
 
         public QuizPlayViewmodel(QuizCategory category) : this()
         {
-            this.CategoryId = category.Id;
-            this.CategoryName = category.Category;
+            this.CategoryId = category == null ? null : category.Id as int?;
+            this.CategoryName = category == null ? null : category.Category;
         }
     }
 
