@@ -29,6 +29,17 @@ namespace WordPlay.Migrations
             //    );
             //
 
+            //ImageGame
+            context.ImageGameModels.AddOrUpdate(
+                i => i.Id,
+                    new ImageGame() { Id = 1, Word="airplane"},
+                    new ImageGame() { Id = 2, Word="car"},
+                    new ImageGame() { Id = 3, Word="boat"},
+                    new ImageGame() { Id = 4, Word="bicycle"},
+                    new ImageGame() { Id = 5, Word="bear"}
+
+                );
+
 
             //UnscrambleGame
             context.UnscrambledSentences.AddOrUpdate(
