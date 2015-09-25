@@ -16,7 +16,7 @@ namespace WordPlay.Controllers
         // GET: ImageGame
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Play");
         }
 
         public ActionResult Play()
