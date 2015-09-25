@@ -23,6 +23,8 @@ namespace WordPlay.Models
 
         public DbSet<ImageQuery> ImageQueries { get; set; }
 
+        public DbSet<ColorQuery> ColorQueries { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
