@@ -29,7 +29,9 @@ namespace WordPlay.Repositories
         public void RemovePgTask(int? id)
         {
             PgTask t = new PgTask();
+            t = db.PgTasks.Find(id);
             db.PgTasks.Remove(t);
+            db.SaveChanges();
         }
 
         internal object Entry(PgTask pgTask)

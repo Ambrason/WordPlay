@@ -39,6 +39,8 @@ namespace WordPlay.Controllers
             {
                 return HttpNotFound();
             }
+            pgTask.PgTaskOut = pgTask.EncodeText(pgTask.PgTaskString);
+            ViewBag.answer = true;
             return View(pgTask);
         }
 
@@ -52,7 +54,8 @@ namespace WordPlay.Controllers
 
             //    return RedirectToAction("Index");
             //}
-            pgTask.EncodeText(pgTask.PgTaskAnswer);
+            //pgTask.EncodeText(pgTask.PgTaskAnswer);
+            ViewBag.answer=pgTask.CheckAnswer(pgTask.PgTaskAnswer);
             return View(pgTask);
         }
         // GET: PunctuationGame/Create
