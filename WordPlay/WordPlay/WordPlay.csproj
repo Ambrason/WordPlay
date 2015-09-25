@@ -183,6 +183,10 @@
     <Compile Include="Migrations\201509250902449_colorgame.Designer.cs">
       <DependentUpon>201509250902449_colorgame.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201509250915368_updated attribute.cs" />
+    <Compile Include="Migrations\201509250915368_updated attribute.Designer.cs">
+      <DependentUpon>201509250915368_updated attribute.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -319,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201509250902449_colorgame.resx">
       <DependentUpon>201509250902449_colorgame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509250915368_updated attribute.resx">
+      <DependentUpon>201509250915368_updated attribute.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

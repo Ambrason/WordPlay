@@ -46,7 +46,7 @@ namespace WordPlay.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Details(PgTask pgTask)
+        public ActionResult Details(PgTask pgTask, int? score, string answer)
         {
             //if (ModelState.IsValid)
             //{
@@ -55,7 +55,24 @@ namespace WordPlay.Controllers
             //    return RedirectToAction("Index");
             //}
             //pgTask.EncodeText(pgTask.PgTaskAnswer);
+            
             ViewBag.answer=pgTask.CheckAnswer(pgTask.PgTaskAnswer);
+
+            score = score == null ? 0 : score;
+            if (answer.ToLower() == pgTask.PgTaskString.ToLower())
+            {
+                ViewBag.Message = "Rätt svar!";
+                ViewBag.Score = score + 1;
+
+                return View(pgTask);
+            }
+            else
+            {
+                ViewBag.Message = "You were wrong, please try again.";
+                ViewBag.Score = score;
+                return View(pgTask);
+            }
+
             return View(pgTask);
         }
         // GET: PunctuationGame/Create
