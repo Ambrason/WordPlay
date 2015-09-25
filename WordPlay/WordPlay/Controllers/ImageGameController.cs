@@ -19,30 +19,65 @@ namespace WordPlay.Controllers
             return RedirectToAction("Play");
         }
 
-        public ActionResult Play()
+        public ActionResult Play(int? categoryId, int? score, int? questionNr)
         {
-            ViewBag.Score = 0;
+            score = score == null ? 0 : score;
+            ViewBag.Score = score;
+            ViewBag.CategoryId = categoryId;
+            ViewBag.QuestionNr = questionNr;
             return View(rep.GetRandomImage());
         }
 
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult Play(int Id, int? score, string answer)
+        public ActionResult Play(int Id, int? score, string answer, int? categoryId, int? questionNr)
         {
-            var model = rep.GetImage(Id);
-            score = score == null ? 0 : score;
-            if (answer.ToLower() == model.Word.ToLower())
+            if (questionNr != null)
             {
-                ViewBag.Message = "You were correct!";
-                ViewBag.Score = score + 1;
+                var model = rep.GetImage(Id);
+                score = score == null ? 0 : score;
+                questionNr = questionNr == null ? 0 : questionNr + 1;
+                if (answer.ToLower() == model.Word.ToLower())
+                {
+                    score += 1;
+                }
+                
+                if (categoryId == null)
+                {
+                    return RedirectToAction("Play", "Challenge", new { });
+                }
+                else 
+                {
+                    if (questionNr > 5)
+                    {
+                        return RedirectToAction("Play", "Result", new { });
+                    }
 
-                return View(rep.GetRandomImage());
+                    ViewBag.Score = score;
+                    ViewBag.CategoryId = categoryId;
+                    ViewBag.QuestionNr = questionNr;
+                    return View(rep.GetRandomImage());
+                }
             }
-            else {
-                ViewBag.Message = "You were wrong, please try again.";
-                ViewBag.Score = score;
-                return View(model);
+            else 
+            {
+                var model = rep.GetImage(Id);
+                score = score == null ? 0 : score;
+                if (answer.ToLower() == model.Word.ToLower())
+                {
+                    ViewBag.Message = "You were correct!";
+                    ViewBag.Score = score + 1;
+
+                    return View(rep.GetRandomImage());
+                }
+                else
+                {
+                    ViewBag.Message = "You were wrong, please try again.";
+                    ViewBag.Score = score;
+                    return View(model);
+                }
             }
+
         }
     }
 }

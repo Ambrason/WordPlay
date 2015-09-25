@@ -29,6 +29,7 @@ namespace WordPlay.Migrations
             //    );
             //
 
+
             //ColorGame
             context.ColorQueries.AddOrUpdate(
                 q => q.Id,
@@ -41,16 +42,16 @@ namespace WordPlay.Migrations
                 new ColorQuery() { Id = 7, ColorName = "cyan", ColorCode = "cyan", ColorText = "red" }
                 );
 
-            //PunctuationGame
-            context.PgTasks.AddOrUpdate(
-               i => i.k,
-                   new PgTask() { k = 1, PgTaskString = "airplane-rotor",PgTaskOut ="" ,PgTaskScore=0, PgTaskAnswer=""},
-                   new PgTask() { k = 2, PgTaskString = "caren?gine", PgTaskOut = "", PgTaskScore = 0, PgTaskAnswer = "" },
-                   new PgTask() { k = 3, PgTaskString = ".boat", PgTaskOut = "", PgTaskScore = 0, PgTaskAnswer = "" },
-                   new PgTask() { k = 4, PgTaskString = "bicycle", PgTaskOut = "", PgTaskScore = 0, PgTaskAnswer = "" },
-                   new PgTask() { k = 5, PgTaskString = "bear", PgTaskOut = "", PgTaskScore = 0, PgTaskAnswer = "" }
+            ////PunctuationGame
+            //context.PgTasks.AddOrUpdate(
+            //   i => i.k,
+            //       new PgTask() { k = 1, PgTaskString = "airplane-rotor",PgTaskOut ="" ,PgTaskScore=0, PgTaskAnswer=""},
+            //       new PgTask() { k = 2, PgTaskString = "caren?gine", PgTaskOut = "", PgTaskScore = 0, PgTaskAnswer = "" },
+            //       new PgTask() { k = 3, PgTaskString = ".boat", PgTaskOut = "", PgTaskScore = 0, PgTaskAnswer = "" },
+            //       new PgTask() { k = 4, PgTaskString = "bicycle", PgTaskOut = "", PgTaskScore = 0, PgTaskAnswer = "" },
+            //       new PgTask() { k = 5, PgTaskString = "bear", PgTaskOut = "", PgTaskScore = 0, PgTaskAnswer = "" }
 
-               );
+            //   );
 
             ////ImageGame
             //context.ImageGameModels.AddOrUpdate(
@@ -163,6 +164,15 @@ namespace WordPlay.Migrations
                 new QuizHighscore() { Id = 18, CategoryId = 1, Name = "RRR", DateTime = new DateTime(2015, 09, 24), Score = 0 },
                 new QuizHighscore() { Id = 19, CategoryId = 1, Name = "SSS", DateTime = new DateTime(2015, 09, 24), Score = 0 },
                 new QuizHighscore() { Id = 20, CategoryId = 1, Name = "TTT", DateTime = new DateTime(2015, 09, 24), Score = 0 }
+                );
+
+            
+            //Challenge
+            context.ChallengeCategories.AddOrUpdate(
+                q => q.Id,
+                new ChallengeCategory() { Id = 1, Category = "ColorGame" },
+                new ChallengeCategory() { Id = 2, Category = "ImageGame" },
+                new ChallengeCategory() { Id = 3, Category = "UnscrambleGame" }
                 );
 
         }

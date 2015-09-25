@@ -1,0 +1,21 @@
+﻿@model IEnumerable<WordPlay.Models.ChallengeCategory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <ul>
+        <li>
+            @Html.ActionLink("All categories", "Play")
+        </li>
+        @foreach (var item in Model)
+        {
+            @Html.ActionLink(item.Category, "Play", new { categoryId = item.Id })
+        }
+    </ul>
+    
+</p>
+

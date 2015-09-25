@@ -17,6 +17,8 @@
         @*@Html.HiddenFor(model => model.Id)*@
         <input type="hidden" name="Id" value="@Model.Id" />
         <input type="hidden" name="score" value="@ViewBag.Score" />
+        <input type="hidden" name="categoryId" value="@ViewBag.CategoryId" />
+        <input type="hidden" name="questionNr" value="@ViewBag.QuestionNr" />
         <div class="form-group">
             Score: @ViewBag.Score
             <br />

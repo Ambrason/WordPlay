@@ -17,7 +17,7 @@ namespace WordPlay.Models
 
         [ForeignKey("Category")]
         public int? CategoryId { get; set; }
-        public virtual QuizCategory Category { get; set; }
+        public virtual ChallengeCategory Category { get; set; }
     }
 
     public class ChallengeCategory

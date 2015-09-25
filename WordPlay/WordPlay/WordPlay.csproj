@@ -159,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChallengeController.cs" />
     <Compile Include="Controllers\ColorController.cs" />
     <Compile Include="Controllers\ColorGameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -186,6 +187,10 @@
     <Compile Include="Migrations\201509250915368_updated attribute.cs" />
     <Compile Include="Migrations\201509250915368_updated attribute.Designer.cs">
       <DependentUpon>201509250915368_updated attribute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509251153088_challenge.cs" />
+    <Compile Include="Migrations\201509251153088_challenge.Designer.cs">
+      <DependentUpon>201509251153088_challenge.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -246,6 +251,7 @@
     <Content Include="Views\ColorGame\Edit.cshtml" />
     <Content Include="Views\ColorGame\Index.cshtml" />
     <Content Include="Views\ColorGame\Play.cshtml" />
+    <Content Include="Views\Challenge\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -327,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201509250915368_updated attribute.resx">
       <DependentUpon>201509250915368_updated attribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509251153088_challenge.resx">
+      <DependentUpon>201509251153088_challenge.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
