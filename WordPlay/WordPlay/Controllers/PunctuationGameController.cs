@@ -22,9 +22,9 @@ namespace WordPlay.Controllers
         {
             var l = rep.GetAllPgTasks();
 
-            List<string> list = new List<string>();
+            //List<string> list = new List<string>();
 
-            return View();
+            return View(l);
         }
 
         // GET: PunctuationGame/Details/5
@@ -42,6 +42,19 @@ namespace WordPlay.Controllers
             return View(pgTask);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Details(PgTask pgTask)
+        {
+            //if (ModelState.IsValid)
+            //{
+                
+
+            //    return RedirectToAction("Index");
+            //}
+            pgTask.EncodeText(pgTask.PgTaskAnswer);
+            return View(pgTask);
+        }
         // GET: PunctuationGame/Create
         public ActionResult Create()
         {

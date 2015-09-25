@@ -8,78 +8,55 @@ namespace WordPlay.Models
 {
     public class PgTask
     {
-        // Skiljetecken och tecknets index i indatasträngen
-        private class TokenAndPosition
-        {
-            public int Idx { get; set; }
-            public char Token { get; set; }
-        }// end inner class
-
-        private List<TokenAndPosition> tokens = new List<TokenAndPosition>();
-
-        //public List<string> facit = new List<string>();
-        //public List<int> errors = new List<int>();
+        
 
         [Key]
         public int k { get; set; }
         public string PgTaskString { get; set; } // Text
         public string PgTaskOut { get; set; } // Utdata
-        public int PgTaskScore { get; set; } //Poäng
-        public string PgTaskAnswer { get; set; }
+        public int? PgTaskScore { get; set; } //Poäng
+        public string PgTaskAnswer { get; set; } // Inskickat svar
 
         // Tar emot en sträng. Ersätter skiljetecken med * och returnerar den strängen.
         public string EncodeText(string s)
         {
-            string result = s;
-
-
-            for (int i = 0; i < s.Length; i++)
-            {
-
-                if ((s[i] == '.') || (s[i] == ',') || (s[i] == '?') || (s[i] == '-') || (s[i] == '!'))
-                {
-                    //skiljetecknet sparas undan
-                    TokenAndPosition t = new TokenAndPosition();
-                    t.Idx = i;
-                    t.Token = s[i];
-                    tokens.Add(t);
-                    // ersätt med *
-                    result.Insert(i, "*");
-                }
-
-            }
-
-            return result;
+            return s.Replace('.', '*').Replace(',','*').Replace('?','*').Replace('-','*').Replace('!','*');
+        
         }//EncodeText
 
-        // Tar emot en sträng och en lista . Kontrollerar om skiljetecken matchar sparade tecken (tokens)
+        // Returnerar "true" om strängen innehåller något skiljetecken
         public bool CheckAnswer(string s)// s= svar
         {
+            string tmp = PgTaskAnswer;
             bool result = true;
-
-            for (int i = 0; i < s.Length; i++)
+            // Räkna poäng för de skiljetecken som blivit rätt
+           // returnera true om PgTaskAnswer == s, annars false
+            // true - skall skriva ut en gratulation och antal poång i UI't
+            // false - skriver ut att det inte blev helt rätt, antal poäng för det som blev rätt och den korrekta strängen
+            // Egen metod för utdata?
+            for(int i = 0; i < s.Length; i++)
             {
-
-                if ((s[i] == '.') || (s[i] == ',') || (s[i] == '?') || (s[i] == '-') || (s[i] == '!'))
+                if(s[i] != PgTaskAnswer[i]) //fel svar
                 {
-                    //Skiljetecknet i indatasträngen jämförs med sparade skiljetecken
-                    TokenAndPosition t = new TokenAndPosition();
-                    t = tokens.First();
-                    if( (t.Idx != i) || (t.Token != s[i]) )
+                    if( (s[i]=='.') || (s[i]==',') || (s[i]=='?') || (s[i]=='-') || (s[i]=='!') ) //.,?-!
                     {
-                        result = false;
-                        tokens.RemoveAt(0);
-                        
+                        result = false; // Skiljetecken felar
                     }
                     else
                     {
-                        tokens.RemoveAt(0);
-                        this.PgTaskScore++; // Lägger till poäng
+                        // Stavfel ?????
                     }
                 }//if
-
-            }// for
-
+                if (s[i] == PgTaskAnswer[i])  
+                {
+                    //rätt skiljetecken
+                    if ((s[i] == '.') || (s[i] == ',') || (s[i] == '?') || (s[i] == '-') || (s[i] == '!')) //.,?-!
+                    {
+                        PgTaskScore++; // Räkna upp poängen
+                    }
+                   
+                }//if
+            }//for
             return result;
         }//CheckAnswer
 

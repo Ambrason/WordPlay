@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.PgTaskScore)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PbTaskAnswer)
+            @Html.DisplayNameFor(model => model.PgTaskAnswer)
         </th>
         <th></th>
     </tr>
@@ -38,10 +38,10 @@
             @Html.DisplayFor(modelItem => item.PgTaskScore)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PbTaskAnswer)
+            @Html.DisplayFor(modelItem => item.PgTaskAnswer)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.k }) |
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.k }) |*@
             @Html.ActionLink("Details", "Details", new { id=item.k }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.k })
         </td>
