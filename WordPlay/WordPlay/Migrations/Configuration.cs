@@ -40,6 +40,11 @@ namespace WordPlay.Migrations
 
                 );
 
+            context.ImageQueries.AddOrUpdate(
+                q => q.Id,
+                new ImageQuery() { Id = 1, ImageUrl = "http://i.imgur.com/3QAOoll.gifv", Word = "Cat" }
+                );
+
 
             //UnscrambleGame
             context.UnscrambledSentences.AddOrUpdate(
