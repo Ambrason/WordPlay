@@ -25,6 +25,9 @@ namespace WordPlay.Models
 
         public DbSet<ColorQuery> ColorQueries { get; set; }
 
+        public DbSet<ChallengeHighscore> ChallengeHighscores { get; set; }
+        public DbSet<ChallengeCategory> ChallengeCategories { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

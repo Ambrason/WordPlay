@@ -193,6 +193,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ChallengeModels.cs" />
     <Compile Include="Models\ColorGameModels.cs" />
     <Compile Include="Models\ColorModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
