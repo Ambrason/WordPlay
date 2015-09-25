@@ -1,7 +1,7 @@
 ﻿@model WordPlay.Models.ImageQuery
 
 @{
-    ViewBag.Title = "Image Game - Play";
+    ViewBag.Title = "ImageGame - Play";
 }
 
 <h2>@ViewBag.Title</h2>
@@ -12,25 +12,26 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>@ViewBag.Title</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
-        <input type="hidden" name="answer" value="@ViewBag.Score" />
-        <input type="hidden" name="Word" value="@Model.Word" />
+        @*@Html.HiddenFor(model => model.Id)*@
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="hidden" name="score" value="@ViewBag.Score" />
         <div class="form-group">
             Score: @ViewBag.Score
+            <br />
             @ViewBag.Message
         </div>
 
-        <div class="form-group">
-            <img src="@Model.ImageUrl" />
+        <div class="form-group" >
+            <img src="@Model.ImageUrl" style="width:800px; height:600px;" />
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2">Answer</label>
             <div class="col-md-10">
-                <input type="text" name="answer" />
+                @*@Html.Editor("answer")*@
+                <input type="text" name="answer" value="" />
             </div>
         </div>
 

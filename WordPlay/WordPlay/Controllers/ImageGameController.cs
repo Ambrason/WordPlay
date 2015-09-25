@@ -21,13 +21,17 @@ namespace WordPlay.Controllers
 
         public ActionResult Play()
         {
+            ViewBag.Score = 0;
             return View(rep.GetRandomImage());
         }
 
         [HttpPost]
-        public ActionResult Play(ImageQuery model, string answer, int score)
+        //[ValidateAntiForgeryToken]
+        public ActionResult Play(int Id, int? score, string answer)
         {
-            if (answer == model.Word)
+            var model = rep.GetImage(Id);
+            score = score == null ? 0 : score;
+            if (answer.ToLower() == model.Word.ToLower())
             {
                 ViewBag.Message = "You were correct!";
                 ViewBag.Score = score + 1;

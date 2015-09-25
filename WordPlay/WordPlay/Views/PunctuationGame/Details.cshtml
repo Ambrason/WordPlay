@@ -35,16 +35,26 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PbTaskAnswer)
+            @Html.DisplayNameFor(model => model.PgTaskAnswer)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PbTaskAnswer)
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+           @Html.EditorFor(model => model.PgTaskAnswer, new { htmlAttributes = new { @class = "form-control" } })
+            <input type="hidden" name="k" value="@Model.k" />
+            <input type="hidden" name="PgTaskString" value="@Model.PgTaskString" />
+            <input type="hidden" name="PgTaskOut" value="@Model.PgTaskOut" />
+            <input type="hidden" name="PgTaskScore" value="@Model.PgTaskScore" />
+
+    <input type="submit" value="Send" class="btn btn-default" />
+    }
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.k }) |
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.k }) |*@
     @Html.ActionLink("Back to List", "Index")
 </p>

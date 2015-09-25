@@ -29,6 +29,17 @@ namespace WordPlay.Migrations
             //    );
             //
 
+            //PunctuationGame
+            context.PgTasks.AddOrUpdate(
+               i => i.k,
+                   new PgTask() { k = 1, PgTaskString = "airplane-rotor" },
+                   new PgTask() { k = 2, PgTaskString = "caren?gine" },
+                   new PgTask() { k = 3, PgTaskString = ".boat" },
+                   new PgTask() { k = 4, PgTaskString = "bicycle" },
+                   new PgTask() { k = 5, PgTaskString = "bear" }
+
+               );
+
             //ImageGame
             context.ImageGameModels.AddOrUpdate(
                 i => i.Id,
@@ -42,7 +53,11 @@ namespace WordPlay.Migrations
 
             context.ImageQueries.AddOrUpdate(
                 q => q.Id,
-                new ImageQuery() { Id = 1, ImageUrl = "http://i.imgur.com/3QAOoll.gifv", Word = "Cat" }
+                new ImageQuery() { Id = 1, Word = "Cat", ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Large_Siamese_cat_tosses_a_mouse.jpg/1920px-Large_Siamese_cat_tosses_a_mouse.jpg" },
+                new ImageQuery() { Id = 2, Word = "Dog", ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Terrier_mixed-breed_dog.jpg/1024px-Terrier_mixed-breed_dog.jpg" },
+                new ImageQuery() { Id = 3, Word = "Horse", ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/8/85/Points_of_a_horse.jpg" },
+                new ImageQuery() { Id = 4, Word = "Dolphin", ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/b/b3/Dolphind.jpg" },
+                new ImageQuery() { Id = 5, Word = "Duck", ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Duck-iran.JPG/1920px-Duck-iran.JPG" }
                 );
 
 
