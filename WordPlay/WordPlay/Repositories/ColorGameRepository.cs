@@ -6,18 +6,18 @@ using WordPlay.Models;
 
 namespace WordPlay.Repositories
 {
-    public class ImageGameRepository
+    public class ColorGameRepository
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public ImageQuery GetImage(int id)
+        public ColorQuery GetColor(int id)
         {
-            return db.ImageQueries.Find(id);
+            return db.ColorQueries.Find(id);
         }
 
-        public ImageQuery GetRandomImage()
+        public ColorQuery GetRandomColor()
         {
-            var list = db.ImageQueries.ToList();
+            var list = db.ColorQueries.ToList();
 
             Random random = new Random();
             int r = random.Next(list.Count);

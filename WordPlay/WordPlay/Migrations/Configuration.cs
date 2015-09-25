@@ -29,6 +29,18 @@ namespace WordPlay.Migrations
             //    );
             //
 
+            //ColorGame
+            context.ColorQueries.AddOrUpdate(
+                q => q.Id,
+                new ColorQuery() { Id = 1, ColorName = "red", ColorCode = "red", ColorText = "blue" },
+                new ColorQuery() { Id = 2, ColorName = "blue", ColorCode = "blue", ColorText = "green" },
+                new ColorQuery() { Id = 3, ColorName = "green", ColorCode = "green", ColorText = "yellow" },
+                new ColorQuery() { Id = 4, ColorName = "yellow", ColorCode = "yellow", ColorText = "purple" },
+                new ColorQuery() { Id = 5, ColorName = "purple", ColorCode = "purple", ColorText = "orange" },
+                new ColorQuery() { Id = 6, ColorName = "orange", ColorCode = "orange", ColorText = "cyan" },
+                new ColorQuery() { Id = 7, ColorName = "cyan", ColorCode = "cyan", ColorText = "red" }
+                );
+
             //PunctuationGame
             context.PgTasks.AddOrUpdate(
                i => i.k,
@@ -40,15 +52,25 @@ namespace WordPlay.Migrations
 
                );
 
-            //ImageGame
-            context.ImageGameModels.AddOrUpdate(
-                i => i.Id,
-                    new ImageGame() { Id = 1, Word="airplane"},
-                    new ImageGame() { Id = 2, Word="car"},
-                    new ImageGame() { Id = 3, Word="boat"},
-                    new ImageGame() { Id = 4, Word="bicycle"},
-                    new ImageGame() { Id = 5, Word="bear"}
+            ////ImageGame
+            //context.ImageGameModels.AddOrUpdate(
+            //    i => i.Id,
+            //        new ImageGame() { Id = 1, Word="airplane"},
+            //        new ImageGame() { Id = 2, Word="car"},
+            //        new ImageGame() { Id = 3, Word="boat"},
+            //        new ImageGame() { Id = 4, Word="bicycle"},
+            //        new ImageGame() { Id = 5, Word="bear"}
 
+            //    );
+
+            //ImageGame
+            context.ImageQueries.AddOrUpdate(
+                q => q.Id,
+                new ImageQuery() { Id = 1, Word = "Cat", ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Large_Siamese_cat_tosses_a_mouse.jpg/1920px-Large_Siamese_cat_tosses_a_mouse.jpg" },
+                new ImageQuery() { Id = 2, Word = "Dog", ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Terrier_mixed-breed_dog.jpg/1024px-Terrier_mixed-breed_dog.jpg" },
+                new ImageQuery() { Id = 3, Word = "Horse", ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/8/85/Points_of_a_horse.jpg" },
+                new ImageQuery() { Id = 4, Word = "Dolphin", ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/b/b3/Dolphind.jpg" },
+                new ImageQuery() { Id = 5, Word = "Duck", ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Duck-iran.JPG/1920px-Duck-iran.JPG" }
                 );
 
 
